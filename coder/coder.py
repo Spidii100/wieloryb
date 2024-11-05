@@ -2,8 +2,11 @@ import xml.etree.ElementTree as ET
 from lxml import etree
 from lxml.html import Element
 
+XML_PATH = "xml/mors.xml"
+XSD_PATH = "xsd/mors.xsd"
+
 # Morse code dictionary
-morse_dict = {
+character_to_morse = {
     'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
     'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
     'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
@@ -19,11 +22,11 @@ morse_dict = {
 
 
 # Function to encode a sentence in Morse code
-def encode_to_morse(sentence, morse_dict):
+def encode_to_morse(sentence):
     sentence = sentence.upper()
     encoded_characters = []
     for char in sentence:
-        code = morse_dict.get(char, '')
+        code = character_to_morse.get(char, '')
         if code:
             encoded_characters.append(code)
     return " ".join(encoded_characters)
@@ -51,9 +54,9 @@ def validate(xml_path: str, xsd_path: str) -> bool:
 
 
 # Function to create XML structure and validate it
-def create_and_validate_xml(sentence, morse_dict, xml_path, xsd_path):
+def create_and_validate_xml(sentence, xml_path=XML_PATH, xsd_path=XSD_PATH):
     # Encode sentence in Morse code
-    encoded_sentence = encode_to_morse(sentence, morse_dict)
+    encoded_sentence = encode_to_morse(sentence)
 
     # Create root element "message"
     root = ET.Element("message")
@@ -85,15 +88,4 @@ def create_and_validate_xml(sentence, morse_dict, xml_path, xsd_path):
 
     # Validate saved XML file
     is_valid = validate(xml_path, xsd_path)
-    return is_valid
-
-def click(event):
-    my_button = Element("code")
-    my_button.element.onClick = click()
-
-
-# Example sentence and XML file validation
-sentence = "Hello world! How are you?"
-xml_path = "morse_code.xml"
-xsd_path = "morse_code.xsd"  # Make sure to have the XSD file in the correct path
-create_and_validate_xml(sentence, morse_dict, xml_path, xsd_path)
+    return xml_path
