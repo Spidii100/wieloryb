@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<message>
+    <sentence>
+        <word>
+            <character>s</character>
+            <character>s</character>
+            <character>s</character>
+            <character>s</character>
+        </word>
+        <word>
+            <character>a</character>
+            <character>a</character>
+            <character>a</character>
+            <character>a</character>
+        </word>
+        <word>
+            <character>a</character>
+            <character>a</character>
+            <character>a</character>
+            <character>a</character>
+        </word>
+    </sentence>
+    <sentence>
+        <word>
+            <character>a</character>
+            <character>a</character>
+            <character>a</character>
+            <character>s</character>
+        </word>
+        <word>
+            <character>w</character>
+            <character>w</character>
+            <character>w</character>
+            <character>w</character>
+        </word>
+        <word>
+            <character>w</character>
+            <character>e</character>
+            <character>e</character>
+            <character>e</character>
+        </word>
+    </sentence>
+</message>

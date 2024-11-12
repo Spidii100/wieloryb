@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="message">
+        <xs:complexType>
+        <xs:sequence>
+        <xs:element name="sentence" maxOccurs="unbounded">
+            <xs:complexType>
+            <xs:sequence>
+            <xs:element name="word" maxOccurs="unbounded">
+                <xs:complexType>
+                <xs:sequence>
+                <xs:element name="character" maxOccurs="unbounded">
+                    <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    <xs:minLength value="1"/>
+                    </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
